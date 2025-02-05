@@ -1,4 +1,4 @@
-function route(pathname, handle, response) {
+function route(pathname, handle, response, productId) {
 
     // favicon.ico 요청 무시
     if (pathname === '/favicon.ico') {
@@ -12,7 +12,7 @@ function route(pathname, handle, response) {
     }
 
     if (typeof handle[pathname] === 'function') {
-        handle[pathname](response);
+        handle[pathname](response, productId);
     } else {
         response.writeHead(404, {'Content-Type' : 'text/html'});
         response.write('This webpage is progressing');
